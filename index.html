@@ -2,12 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Typing Trainer</title>
+    <title>TypeStorm — Interactive Typing Trainer</title>
+    <!-- Use our custom icon instead of Vite's default -->
+    <link rel="icon" href="/icon.png" type="image/png" />
+
+    <!-- Open Graph meta tags for rich link previews -->
+    <meta property="og:title" content="TypeStorm — Interactive Typing Trainer" />
+    <meta property="og:description" content="Practice typing with real-time analytics. Try TypeStorm now!" />
+    <!-- Use the uploaded open‑graph image (3:2 ratio) -->
+    <meta property="og:image" content="https://kp2kpx.github.io/typing-trainer/35c5e8ac-a797-4310-b1e4-df76d4aa7626.png" />
+    <meta property="og:url" content="https://kp2kpx.github.io/typing-trainer/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Farcaster Mini App embed information -->
+    <!-- The JSON describes the mini-app preview: version, image, call-to-action button and target URL. -->
+    <meta
+      property="fc:miniapp"
+      content='{"version":"1","image":"https://kp2kpx.github.io/typing-trainer/35c5e8ac-a797-4310-b1e4-df76d4aa7626.png","button":{"text":"Start typing"},"action":{"url":"https://kp2kpx.github.io/typing-trainer/"}}'
+    />
+
+    <!-- Main React application bundle -->
+    <script type="module" crossorigin src="/src/main.jsx"></script>
+
+    <!-- Farcaster ready: hide splash screen when the app loads inside Farcaster clients -->
+    <script type="module">
+      import('@farcaster/miniapp-sdk')
+        .then(({ sdk }) => {
+          // Signal to the Farcaster client that the mini-app has finished loading
+          sdk.actions.ready();
+        })
+        .catch(() => {
+          // Ignore errors when not running inside a Farcaster Mini App environment
+        });
+    </script>
   </head>
-  <body class="bg-gray-100">
+  <body class="bg-gray-50">
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
